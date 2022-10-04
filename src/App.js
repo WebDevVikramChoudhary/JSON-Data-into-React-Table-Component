@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
+let products = [
+  {
+    id: 1,
+    name: "Moto G5",
+    quantity: 2,
+    price: 13000
+  },
+  {
+    id: 2,
+    name: "Racold geyser",
+    quantity: 3,
+    price: 6000
+  },
+  {
+    id: 3,
+    name: "Dell inspiron",
+    quantity: 4,
+    price: 50000
+  }
+];
+
+function JsonDataDisplay() {
+  const DisplayData = products.map((products) => {
+    return (
+      <tr>
+        <td>{products.id}</td>
+        <td>{products.name}</td>
+        <td>{products.quantity}</td>
+        <td>{products.price}</td>
+      </tr>
+    );
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Product List</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>{DisplayData}</tbody>
+      </table>
     </div>
   );
 }
 
-export default App;
+export default JsonDataDisplay;
